@@ -2,13 +2,9 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using MvcCoreDB.Models;
-using System;
-using System.Collections.Generic;
+
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
+
 
 namespace MvcCoreDB.Controllers
 {
@@ -40,8 +36,6 @@ namespace MvcCoreDB.Controllers
             }
                 return View();
         }
-
-
 
         public IActionResult Privacy()
         {
