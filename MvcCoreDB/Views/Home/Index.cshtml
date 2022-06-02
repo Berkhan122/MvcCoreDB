@@ -1,25 +1,3 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
-<h2>Mvc Forms - Model Binding</h2>
-@using (Html.BeginForm())
-{
-    <table>
-        <tr>
-            <td>Ad: </td>
-            <td>@Html.TextBox("ogrName")</td>
-        </tr>
-        <tr>
-            <td>Soyad: </td>
-            <td>@Html.TextBox("ogrSurname")</td>
-        </tr>
-        <tr>
-            <td colspan="2"><input type="submit" value="Submit"></td>
-        </tr>
-    </table>
-}

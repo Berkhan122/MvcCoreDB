@@ -6,16 +6,19 @@ namespace MvcCoreDB.Models
     [Table("tblOgrenciler")]
     public class Ogrenci
     {
-        [Key]
-        public int ogrId { get; set; }
+       
+        public int Id { get; set; }
 
         [Column(TypeName = "varchar")]
         [MaxLength(25)]
-        public string ogrName { get; set; }
+        public string Ad{ get; set; }
 
         [Column(TypeName = "varchar")]
         [MaxLength(25)]
-        public string ogrSurname { get; set; }
+        public string Soyad { get; set; }
+
+        [Column(TypeName = "int")]
+        public int Numara { get; set; }
 
     }
 }

@@ -5,41 +5,40 @@ using System.Linq;
 
 namespace MvcCoreDB.Controllers
 {
-    public class OgrenciController : Controller
+    public class OgretmenController : Controller
     {
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult OgrenciEkle()
+        public IActionResult OgretmenEkle()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult OgrenciEkle(Ogrenci ogr)
+        public IActionResult OgretmenEkle(Ogretmen ogr)
         {
-            if(ogr != null)
+            if (ogr != null)
             {
-                using(var ctx = new OkulDbContext())
+                using (var ctx = new OkulDbContext())
                 {
-                    ctx.Ogrenciler.Add(ogr);
+                    ctx.Ogretmenler.Add(ogr);
                     ctx.SaveChanges();
                 }
             }
             return View();
         }
 
-        public IActionResult OgrenciListe()
+        public IActionResult OgretmenListe()
         {
-            List<Ogrenci> lst;
+            List<Ogretmen> lst;
             using (var ctx = new OkulDbContext())
             {
-                lst = ctx.Ogrenciler.ToList();
+                lst = ctx.Ogretmenler.ToList();
             }
             return View(lst);
         }
-        
     }
 }

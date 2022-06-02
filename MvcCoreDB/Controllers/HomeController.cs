@@ -23,19 +23,7 @@ namespace MvcCoreDB.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult Index(Ogrenci ogr)
-        {
-            ViewBag.ogrName = ogr.ogrName;
-            ViewBag.ogrSurname = ogr.ogrSurname;
-
-            using (var ctx = new OkulContext())
-            {
-                ctx.Ogrenciler.Add(ogr);
-                ctx.SaveChanges();
-            }
-                return View();
-        }
+       
 
         public IActionResult Privacy()
         {
@@ -52,21 +40,4 @@ namespace MvcCoreDB.Controllers
     }
 
 
-    class OkulContext : DbContext
-    {
-        public DbSet<Ogrenci> Ogrenciler { get; set; }
-       
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=OkulAppDbSube2;Integrated Security=true");
-        }
-
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<Ders>().ToTable("tblDersler");
-        //    modelBuilder.Entity<Ders>().Property(p => p.Dersad).HasColumnType("varchar").HasMaxLength(30).IsRequired();
-
-        //}Fluent Api
-    }
 }

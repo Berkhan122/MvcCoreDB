@@ -1,0 +1,16 @@
+﻿@model Ogretmen
+@{
+    ViewData["Title"] = "OgretmenEkle";
+}
+
+<h1>OgretmenEkle</h1>
+
+<form asp-controller="Ogretmen" asp-action="OgretmenEkle" method="post">
+    <label>Ad:</label>
+    <input type="text" asp-for="Name" />
+    <label>Soyad:</label>
+    <input type="text" asp-for="Surname" />
+
+    <input type="submit" value="Kaydet" />
+
+</form>

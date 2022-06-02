@@ -1,32 +1,7 @@
-﻿@model List<Ogrenci>
+﻿
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Ogrenci List</h1>
-
-<table class="table"> 
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Ad</th>
-            <th>Soyad</th>
-            <th>Sil</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (Ogrenci item in Model)
-       {
-           <tr>
-               <td>@item.ogrId</td>
-               <td>@item.ogrName</td>
-               <td>@item.ogrSurname</td>
-               <td><input value=@item.ogrId  type="button"/></td>
-           </tr>
-       }
-
-    </tbody>
-
-</table>
 
 
