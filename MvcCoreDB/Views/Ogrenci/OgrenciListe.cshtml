@@ -1,0 +1,29 @@
+﻿
+@model IEnumerable<Ogrenci>
+@{
+    ViewData["Title"] = "OgrenciListe";
+}
+
+<h1>OgrenciListe</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Numara</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Ad</td>
+                <td>@item.Soyad</td>
+                <td>@item.Numara</td>
+                <td><form asp-action="OgrenciSil" asp-controller="Ogrenci" method="post"><input type="hidden" name="Id" value="@item.Id"/><input type="submit" value="Sil" class="btn btn-danger"/></form></td>
+            </tr>
+        }
+    </tbody>
+</table>

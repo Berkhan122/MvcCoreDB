@@ -20,9 +20,9 @@ namespace MvcCoreDB.Controllers
         [HttpPost]
         public IActionResult OgrenciEkle(Ogrenci ogr)
         {
-            if(ogr != null)
+            if (ogr != null)
             {
-                using(var ctx = new OkulDbContext())
+                using (var ctx = new OkulDbContext())
                 {
                     ctx.Ogrenciler.Add(ogr);
                     ctx.SaveChanges();
@@ -40,6 +40,35 @@ namespace MvcCoreDB.Controllers
             }
             return View(lst);
         }
-        
+
+        public IActionResult OgrenciDetay()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult OgrenciSil(int id)
+        {
+
+            using (var ctx = new OkulDbContext())
+            {
+                try
+                {
+                    var deleted = ctx.Ogrenciler.Find(id);
+                    ctx.Ogrenciler.Remove(deleted);
+                    ctx.SaveChanges();
+
+                }
+                catch (System.Exception)
+                {
+
+                    return RedirectToAction("OgrenciListe", ctx.Ogrenciler.ToList());
+                }
+                return RedirectToAction("OgrenciListe", ctx.Ogrenciler.ToList());
+            }
+
+
+           
+        }
     }
 }
