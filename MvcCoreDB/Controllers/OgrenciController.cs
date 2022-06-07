@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MvcCoreDB.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -41,9 +42,25 @@ namespace MvcCoreDB.Controllers
             return View(lst);
         }
 
-        public IActionResult OgrenciDetay()
+        
+        public IActionResult OgrenciDetay(int id)
         {
-            return View();
+            using(var ctx = new OkulDbContext())
+            {
+                var willupdate = ctx.Ogrenciler.Find(id);
+                return View(willupdate);
+            }
+        }
+
+        [HttpPost]
+        public IActionResult OgrenciDetay(Ogrenci ogrenci)
+        {
+            using (var ctx = new OkulDbContext())
+            {
+                ctx.Ogrenciler.Update(ogrenci);
+                ctx.SaveChanges();
+                return RedirectToAction("Index");
+            }
         }
 
         [HttpPost]
